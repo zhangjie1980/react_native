@@ -15,6 +15,7 @@ import FlexboxJustifyContent from './flexbox.justifyContent.js';
 import FlexboxAlignItems from './flexbox.alignItems.js';
 import FlexboxWrap from './flexbox.wrap.js';
 import FlexboxAlignSelf from './flexbox.alignSelf.js';
+import MarginPadding from './margin.padding.js';
 
 class Lesson1 extends Component {
     
@@ -32,7 +33,9 @@ class Lesson1 extends Component {
             
             // <FlexboxWrap/>
             
-            <FlexboxAlignSelf/>
+            // <FlexboxAlignSelf/>
+            
+            <MarginPadding/>
         );
     }
 }
