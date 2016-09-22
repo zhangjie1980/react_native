@@ -14,6 +14,7 @@ import {
 
 import TextInputComponent from './text.input.js';
 import ScrollViewComponent from './scroll.js';
+import SectionListViewComponent from './listview.section.js';
 import ListViewComponent from './listview.js';
 
 class Lesson2 extends Component {
