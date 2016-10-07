@@ -31,11 +31,11 @@ class Lesson1 extends Component {
             
             // <FlexboxAlignItems/>
             
-            // <FlexboxWrap/>
+            <FlexboxWrap/>
             
             // <FlexboxAlignSelf/>
             
-            <MarginPadding/>
+            // <MarginPadding/>
         );
     }
 }
