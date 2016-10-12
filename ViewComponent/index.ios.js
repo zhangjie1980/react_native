@@ -10,7 +10,8 @@ import {
     StyleSheet,
     PixelRatio,
     Text,
-    View
+    View,
+    Navigator,
 } from 'react-native';
 
 import CustomViewComponent from "./custom.view.js";
@@ -18,8 +19,19 @@ import TextComponent from "./text.js";
 
 class ViewComponent extends Component {
     render() {
+        let defaultName = 'TextComponent';
+        let defaultComponent = TextComponent;
         return (
-            <TextComponent/>
+            <Navigator
+                initialRoute={{ name: defaultName, component: defaultComponent }}
+                configureScene={ (route) => {
+                    return Navigator.SceneConfigs.HorizontalSwipeJump;
+                }}
+                renderScene={(route, navigator) => {
+                    let Component = route.component;
+                    return <Component {...route.params} navigator={navigator}/>
+                }}
+            />
         );
     }
 }
