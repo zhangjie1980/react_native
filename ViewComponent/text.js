@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import HeaderComponent from "./header.js";
+import SearchComponent from './search.js';
 import ListItemComponent from "./list.item.js";
 
 export default class TextViewComponent extends Component {
@@ -24,6 +25,7 @@ export default class TextViewComponent extends Component {
         return (
             <View style={{flex: 1}}>
                 <HeaderComponent/>
+                <SearchComponent/>
                 <ListItemComponent title="要闻北京新闻14℃北京这个小山村让习近平“把心留在这里" navigator={this.state.navigator}/>
                 <ListItemComponent title="习近平告诉干部如何成为行家里手" navigator={this.state.navigator}/>
                 <ListItemComponent title="上海明起实施不动产统一登记制度 此前证书不更换" navigator={this.state.navigator}/>
