@@ -26,21 +26,24 @@ export default class TextViewComponent extends Component {
             <View style={{flex: 1}}>
                 <HeaderComponent/>
                 <SearchComponent/>
-                <ListItemComponent title="要闻北京新闻14℃北京这个小山村让习近平“把心留在这里" navigator={this.state.navigator}/>
-                <ListItemComponent title="习近平告诉干部如何成为行家里手" navigator={this.state.navigator}/>
-                <ListItemComponent title="上海明起实施不动产统一登记制度 此前证书不更换" navigator={this.state.navigator}/>
-                <ListItemComponent title="个人可慢就业，创造就业机会的政策不能慢" navigator={this.state.navigator}/>
-                
-                <ImportantNewsComponent
-                    news={
-                        [
-                            "美国嫌犯承认抢劫留学生：他是中国人 肯定有钱",
-                            "快报新LOGO启用 范冰冰、TFBOYS、吴亦凡加盟",
-                            "多城出台楼市调控政策",
-                            "30强巡礼：尼克斯孤注一掷 砸巨资豪赌季后赛"
-                        ]
-                    }
-                />
+                <View style={{flex: 1}}>
+                    <ListItemComponent title="美女图片看这里" navigator={this.state.navigator}/>
+                    <ListItemComponent title="要闻北京新闻14℃北京这个小山村让习近平“把心留在这里" navigator={this.state.navigator}/>
+                    <ListItemComponent title="习近平告诉干部如何成为行家里手" navigator={this.state.navigator}/>
+                    <ListItemComponent title="上海明起实施不动产统一登记制度 此前证书不更换" navigator={this.state.navigator}/>
+                    <ListItemComponent title="个人可慢就业，创造就业机会的政策不能慢" navigator={this.state.navigator}/>
+
+                    <ImportantNewsComponent
+                        news={
+                            [
+                                "美国嫌犯承认抢劫留学生：他是中国人 肯定有钱",
+                                "快报新LOGO启用 范冰冰、TFBOYS、吴亦凡加盟",
+                                "多城出台楼市调控政策",
+                                "30强巡礼：尼克斯孤注一掷 砸巨资豪赌季后赛"
+                            ]
+                        }
+                    />
+                </View>
             </View>
         );
     }
