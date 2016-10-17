@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {StyleSheet, View, Text, PixelRatio} from "react-native";
 import DetailComponent from "./detail.js";
 import ImageComponent from './image.js';
+import ProgressBarComponent from './progressbar.js';
 
 export default class ListItemComponent extends Component {
 
@@ -33,7 +34,12 @@ export default class ListItemComponent extends Component {
 
     onPress(title) {
         var self = this;
-        if (title == '美女图片看这里') {
+        if (title == '进度显示哦') {
+            this.state.navigator.push({
+                name: 'ProgressBarComponent',
+                component: ProgressBarComponent
+            })
+        } else if (title == '美女图片看这里') {
             this.state.navigator.push({
                 name: 'ImageComponent',
                 component: ImageComponent,
