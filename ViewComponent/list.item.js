@@ -34,6 +34,10 @@ export default class ListItemComponent extends Component {
 
     onPress(title) {
         var self = this;
+        if (this.props.onPress != null) {
+            this.props.onPress();
+            return;
+        }
         if (title == '进度显示哦') {
             this.state.navigator.push({
                 name: 'ProgressBarComponent',
