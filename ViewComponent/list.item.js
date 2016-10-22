@@ -3,6 +3,10 @@ import {StyleSheet, View, Text, PixelRatio} from "react-native";
 import DetailComponent from "./detail.js";
 import ImageComponent from './image.js';
 import ProgressBarComponent from './progressbar.js';
+import FetchComponent from './fetch.js';
+import SwiperComponent from './swiper.js';
+import SimpleListViewComponent from './simple.listview.js';
+import SectionListViewComponent from './section.listview.js';
 
 export default class ListItemComponent extends Component {
 
@@ -38,7 +42,27 @@ export default class ListItemComponent extends Component {
             this.props.onPress();
             return;
         }
-        if (title == '进度显示哦') {
+        if (title == 'SectionListView') {
+            this.state.navigator.push({
+                name: 'SectionListViewComponent',
+                component: SectionListViewComponent,
+            })
+        } else if (title == 'SimpleListView') {
+            this.state.navigator.push({
+                name: 'SimpleListViewComponent',
+                component: SimpleListViewComponent,
+            })
+        } else if (title == 'Swiper') {
+            this.state.navigator.push({
+                name: 'SwiperComponent',
+                component: SwiperComponent,
+            })
+        } else if (title == '获取网络数据') {
+            this.state.navigator.push({
+                name: 'FetchComponent',
+                component: FetchComponent
+            })
+        } else if (title == '进度显示哦') {
             this.state.navigator.push({
                 name: 'ProgressBarComponent',
                 component: ProgressBarComponent

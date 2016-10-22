@@ -63,7 +63,7 @@ export default class AndroidViewPagerComponent extends Component {
                 break;
             case 1:
                 if (this.state.currentPage == 0) {
-                    alert("到头啦")
+                    alert("到头啦");
                     return;
                 }
                 currentPage = this.state.currentPage - 1 == 0 ? 0 : this.state.currentPage - 1;
