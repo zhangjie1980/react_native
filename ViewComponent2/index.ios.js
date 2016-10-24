@@ -11,6 +11,7 @@ import {
     Text,
     View,
     Image,
+    Navigator,
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
@@ -22,9 +23,34 @@ export default class ViewComponent2 extends Component {
     constructor(props) {
         super(props);
         // 初始状态
+        this.state = {};
+    }
+    
+    render() {
+        var defaultName = 'TabComponent';
+        var defaultComponent = TabComponent;
+        return (
+            <Navigator
+                initialRoute={{name: defaultName, component: defaultComponent}}
+                configureScene={(route, routeStack) => Navigator.SceneConfigs.HorizontalSwipeJump}
+                renderScene={(route, navigator) => {
+                    let Component = route.component;
+                    return <Component {...route.params} navigator={navigator}/>
+                }}/>
+        )
+    }
+}
+
+class TabComponent extends Component {
+    
+    // 构造
+    constructor(props) {
+        super(props);
+        // 初始状态
         this.state = {
             selectedTab: 'home',
             openMenu: false,
+            selected: null,
         };
     }
     
@@ -33,6 +59,7 @@ export default class ViewComponent2 extends Component {
         var home = (
             <View style={[styles.container, {backgroundColor: '#bebebe'}]}>
                 <Text>首页</Text>
+                <Text>{this.state.selected}</Text>
             </View>
         );
         
@@ -43,11 +70,12 @@ export default class ViewComponent2 extends Component {
         );
         
         
-        var menu = <Menu onItemSelected={(item) => this.onItemSelected(item)}/>;
+        var menu = <MenuComponent onItemSelected={(item) => this.onItemSelected(item)}/>;
         
         return (
             <SideMenu menu={menu}
-                 >
+                      onChange={(isOpen) => this.onChange(isOpen)}
+                      isOpen={this.state.openMenu}>
                 <TabNavigator
                     tabBarStyle={{height: 80}}>
                     <TabNavigator.Item
@@ -73,19 +101,29 @@ export default class ViewComponent2 extends Component {
         );
     }
     
+    onChange(isOpen) {
+        if (isOpen != this.state.openMenu) {
+            this.setState({
+                openMenu: isOpen,
+            });
+        }
+    }
+    
     onItemSelected(item) {
-        
+        this.setState({
+            openMenu: false,
+            selected: item,
+        });
     }
 }
 
-class Menu extends Component {
+class MenuComponent extends Component {
     
     // 构造
     constructor(props) {
         super(props);
         // 初始状态
-        this.state = {
-        };
+        this.state = {};
     }
     
     static propTypes = {
