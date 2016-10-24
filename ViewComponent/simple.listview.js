@@ -21,7 +21,7 @@ export default class SimpleListViewComponent extends Component {
         this.state = {
             loaded: false,
             dataSource: new ListView.DataSource({
-                rowHasChanged: (r1, r2) =>  r1 !== r2,
+                rowHasChanged: (r1, r2) => r1 !== r2,
             })
         };
     }
@@ -63,6 +63,16 @@ export default class SimpleListViewComponent extends Component {
                 style={styles.flex}
                 dataSource={this.state.dataSource}
                 renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, sectionId, rowId)}
+                removeClippedSubviews={true}
+                initialListSize={10}
+                onEndReachedThreshold={500}
+                onEndReached={() => {
+                    alert("onEndReached")
+                }}
+                pageSize={20}
+                onChangeVisibleRows={(visibleRows, changedRows) => {
+                    console.log(JSON.stringify(visibleRows) + "\n" + JSON.stringify(changedRows))
+                }}
             />
         )
     }

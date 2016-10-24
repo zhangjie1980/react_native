@@ -61,6 +61,7 @@ export default class SectionListViewComponent extends Component {
                 dataSource={this.state.dataSource}
                 renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, sectionId, rowId)}
                 renderSectionHeader={(sectionData, sectionId) => this.renderSectionHeader(sectionData, sectionId)}
+                removeClippedSubviews={true}
             />
         )
     }
