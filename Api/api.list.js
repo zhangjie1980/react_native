@@ -11,9 +11,11 @@ import {
     Alert,
 } from 'react-native';
 
-var that;
+let that;
 
 import AsyncStorageComponent from './async_storage.js';
+import FetchComponent from './fetch.js';
+import CameraRollComponent from './camera.roll.js';
 
 export default class ApiListComponent extends Component {
     
@@ -25,7 +27,7 @@ export default class ApiListComponent extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2,
         });
         
-        var items = ['AsyncStorage', 'Other', 'hello', "world", "test"];
+        var items = ['AsyncStorage', 'Fetch', 'CameraRoll', "world", "test"];
         
         // 初始状态
         this.state = {
@@ -85,7 +87,29 @@ export default class ApiListComponent extends Component {
                         [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
                     return true;
                 }
-            })
+            });
+        } else if (rowData === 'Fetch') {
+            this.state.navigator.push({
+                name: 'FetchComponent',
+                component: FetchComponent,
+                ignoreBack:false,
+                handleBack: (navigator) => {
+                    Alert.alert('提示','确定要返回么?',
+                        [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
+                    return true;
+                }
+            });
+        } else if (rowData === 'CameraRoll') {
+            this.state.navigator.push({
+                name: 'CameraRollComponent',
+                component: CameraRollComponent,
+                ignoreBack:false,
+                handleBack: (navigator) => {
+                    Alert.alert('提示','确定要返回么?',
+                        [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
+                    return true;
+                }
+            });
         }
     }
 }
