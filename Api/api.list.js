@@ -16,6 +16,7 @@ let that;
 import AsyncStorageComponent from './async_storage.js';
 import FetchComponent from './fetch.js';
 import CameraRollComponent from './camera.roll.js';
+import NetInfo from './netinfo.js';
 
 export default class ApiListComponent extends Component {
     
@@ -27,7 +28,7 @@ export default class ApiListComponent extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2,
         });
         
-        var items = ['AsyncStorage', 'Fetch', 'CameraRoll', "world", "test"];
+        var items = ['AsyncStorage', 'NetInfo', 'Fetch', 'CameraRoll', "test"];
         
         // 初始状态
         this.state = {
@@ -78,39 +79,27 @@ export default class ApiListComponent extends Component {
     onItemClick(rowData, sectionId, rowId, highlightRow) {
         highlightRow(sectionId, rowId);
         if (rowData === 'AsyncStorage') {
-            this.state.navigator.push({
-                name: 'AsyncStorageComponent',
-                component: AsyncStorageComponent,
-                ignoreBack:false,
-                handleBack: (navigator) => {
-                    Alert.alert('提示','您还未保存记录,确定要返回么?',
-                        [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
-                    return true;
-                }
-            });
+            this._jumpTo('AsyncStorageComponent', AsyncStorageComponent, false);
+        } else if (rowData === 'NetInfo') {
+            this._jumpTo('NetInfo', NetInfo, false);
         } else if (rowData === 'Fetch') {
-            this.state.navigator.push({
-                name: 'FetchComponent',
-                component: FetchComponent,
-                ignoreBack:false,
-                handleBack: (navigator) => {
-                    Alert.alert('提示','确定要返回么?',
-                        [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
-                    return true;
-                }
-            });
+            this._jumpTo('FetchComponent', FetchComponent, false);
         } else if (rowData === 'CameraRoll') {
-            this.state.navigator.push({
-                name: 'CameraRollComponent',
-                component: CameraRollComponent,
-                ignoreBack:false,
-                handleBack: (navigator) => {
-                    Alert.alert('提示','确定要返回么?',
-                        [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
-                    return true;
-                }
-            });
+            this._jumpTo('CameraRollComponent', CameraRollComponent, false);
         }
+    }
+
+    _jumpTo(componentName, component, ignoreBack) {
+        this.state.navigator.push({
+            name: componentName,
+            component: component,
+            ignoreBack:false,
+            handleBack: (navigator) => {
+                Alert.alert('提示','确定要返回么?',
+                    [{text:'取消',onPress:() => {}}, {text:'确定',onPress:() => { navigator.pop(); }}]);
+                return true;
+            }
+        });
     }
 }
 

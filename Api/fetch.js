@@ -22,7 +22,6 @@ export default class FetchComponent extends Component {
         let that = this;
         return (
             <View style={styles.flex}>
-                
                 <TextInput
                     style={styles.input}
                     value={this.state.url}
@@ -30,7 +29,6 @@ export default class FetchComponent extends Component {
                         url: text,
                     })}
                 />
-                
                 <TouchableHighlight
                     style={{marginTop: 10}}
                     underlayColor="#63d5fc"
