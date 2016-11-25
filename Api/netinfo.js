@@ -67,7 +67,7 @@ export default class NetInfoComponent extends Component {
         NetInfo.isConnected.removeEventListener('connectChange', this._connectChange);
     }
 
-    箭头函数写法
+    // 箭头函数写法
     _statusChange = (connectionInfo) => {
         console.log(connectionInfo);
         this.setState({
@@ -76,7 +76,7 @@ export default class NetInfoComponent extends Component {
     };
 
 
-    //用全局that方式
+    // 用全局that方式
     // _statusChange(connectionInfo) {
     //     console.log(connectionInfo);
     //     that.setState({
@@ -84,7 +84,7 @@ export default class NetInfoComponent extends Component {
     //     });
     // }
 
-    //用bind this方式
+    // 用bind this方式
     // _statusChange(connectionInfo) {
     //     console.log(connectionInfo);
     //     this.setState({
@@ -98,7 +98,6 @@ export default class NetInfoComponent extends Component {
             isConnected: isConnected,
         });
     }
-
 
 
 }
