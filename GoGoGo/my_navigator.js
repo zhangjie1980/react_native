@@ -4,22 +4,29 @@
 
 import React, {Component} from 'react';
 import {
-  Navigator,
 } from 'react-native';
 
 import Lessons from './lessons.js';
+import NavigationExperimental, {Navigator} from 'react-native-deprecated-custom-components';
 
 export default class MyNavigator extends Component {
   
   render() {
     let defaultName = 'lessons';
     let defaultComponent = Lessons;
+    // 禁用滑动返回
+    const NoBackSwipe = {
+      ...Navigator.SceneConfigs.HorizontalSwipeJump,
+      gestures: {
+        pop: {}
+      }
+    };
     return (
-      <Navigator
+      <NavigationExperimental.Navigator
         initialRoute={{name: defaultName, component: defaultComponent}}
         configureScene={
         (route) => {
-          return Navigator.SceneConfigs.HorizontalSwipeJump;
+          return NoBackSwipe;
         }}
         renderScene={
         (route, navigator) => {
@@ -28,6 +35,5 @@ export default class MyNavigator extends Component {
         }
       }/>
     )
-    
   }
 }

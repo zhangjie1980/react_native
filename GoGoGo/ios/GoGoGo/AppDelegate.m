@@ -18,11 +18,11 @@
 {
   NSURL *jsCodeLocation;
   
-  //  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  jsCodeLocation = [RCTBundleURLProvider jsBundleURLForBundleRoot:@"index.ios"
-                                                                      packagerHost:@"10.40.36.157"
-                                                                         enableDev:YES
-                                                                enableMinification:NO];
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+//  jsCodeLocation = [RCTBundleURLProvider jsBundleURLForBundleRoot:@"index.ios"
+//                                                                      packagerHost:@"10.40.4.124"
+//                                                                         enableDev:YES
+//                                                                enableMinification:NO];
   
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"GoGoGo"
